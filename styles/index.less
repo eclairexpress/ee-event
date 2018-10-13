@@ -1,0 +1,152 @@
+@background: #9b59b6;
+@tabs-base-color: #8e44ad;
+
+* {
+  font-family: 'Hammersmith One', sans-serif;
+  margin: 0;
+  padding: 0; 
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body, #tabs-container {
+  height: 100%;
+}
+
+body {
+  color: #fff; 
+  background: @background;
+}
+
+.tabs {
+  flex: 1;
+  width: 100%;
+  max-width: 490px;
+  list-style: none;
+  position: relative;
+  text-align: left;
+
+  li {
+    float: left;
+    display: block;
+  }
+
+  input[type="radio"] {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+  }
+
+  label {
+    display: block;
+    padding: 9px 14px;
+    line-height: 60px;
+    font-size: 20px;
+    font-weight: normal;
+    text-transform: uppercase;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: @tabs-base-color;
+    cursor: pointer;
+    position: relative;
+    top: 4px; 
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+
+    svg {
+      height: 35px;
+      width: 35px;
+      fill: #cf96e6;
+    }
+  }
+
+  .tab-content{
+    z-index: 2;
+    display: none; 
+    overflow: auto;
+    width: 100%;
+    font-size: 17px;
+    line-height: 25px;
+    padding: 25px;  
+    position: absolute;
+    top: 53px;
+    left: 0;
+    bottom: 0;
+    background: darken(@tabs-base-color, 15);
+  }
+
+  //The Magic
+  [id^="tab"]:checked + label { 
+    top: 0;
+    padding-top: 9px; 
+    background: darken(@tabs-base-color, 15);
+
+    svg {
+      fill: white;
+    }
+  }
+
+  [id^="tab"]:checked ~ [id^="tab-content"] {
+    display: block;
+  }
+}
+
+p.link {
+  clear: both;
+  margin: 380px 0 0 15px;
+
+  a {
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 0 5px;
+    background-color: darken(@tabs-base-color, 15);
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+
+    &:hover {
+      background-color: darken(@tabs-base-color, 20);
+    }
+  }
+} 
+
+#tabs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1em;
+}
+
+#event-banner {
+  img {
+    max-width: 100%;
+  }
+
+  margin: 1em 0;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(76, 50, 43, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(76, 50, 43, 0.3);
+  background-color: purple;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: white;
+}
+
+@media (max-width: 400px) {
+  #tabs-container {
+    padding: 0;
+  }
+}
