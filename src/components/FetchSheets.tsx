@@ -17,12 +17,22 @@ interface IPromptState {
     error: any;
     isLoaded: boolean;
     currentPromptId: string;
+    previousPromptId: string;
 }
 
 class FetchSheets extends React.Component {
 
     private promptDict: { [id: string]: IPrompt } = {};
     private clickBind: (e: any) => void;
+    private lost = -1;
+    private lostPhrases = [
+        "",
+        "You feel like you've already been here before...<br><br>",
+        "You end up back here again... really? You do know that it's a 50/50 chance with only three signs... wait, what's the math on that...<br><br>",
+        "You're back? Are you walking in circles or do you just really like this sign? If the latter, gee, thanks!",
+        "You should probably just reload the page at this point and go along the other path... Or maybe you want to see if the text changes again?",
+        "There's no more flavor text, please proceed!!"
+    ];
     state: IPromptState;
 
     private formatButtons(sheetsArray: any[]) {
@@ -80,21 +90,35 @@ class FetchSheets extends React.Component {
     };
 
     private clickButton(e: any) {
-        this.setState({ currentPromptId: e.currentTarget.id });
+        let id = e.currentTarget.id;
+        this.setState({ previousPromptId: this.state.currentPromptId });
+
+        setTimeout(() => {
+            this.setState({ currentPromptId: id });
+        }, 1000);
     }
 
-    private getTemplate(id: string) {
+    private getTemplate(id: string, fadeIn: boolean) {
+        if (id === "16" && fadeIn) {
+            this.lost ++;
+            if (this.lost > 5) {
+                this.lost = 5;
+            }
+        }
         let prompt = this.promptDict[id];
         let images = !!prompt.image ? [prompt.image] : [];
 
         return(
-            <div className="promptContainer">
+            <div className={"promptContainer" + (fadeIn ? " fadein" : "")}>
                 {images.map(image => {
                     return(
                         <img key={image} src={image}></img>
                     );
                 })}
                 <span className="promptText" dangerouslySetInnerHTML={{ __html: prompt.text }}></span>
+                
+            <span className="promptText" dangerouslySetInnerHTML={{ __html: id === "16" && this.lost > 0 ? this.lostPhrases[this.lost] : "" }}></span>
+                
                 <div className="buttonWrapper">
                 {prompt.options.map(option => {
                     return(
@@ -111,7 +135,8 @@ class FetchSheets extends React.Component {
         this.state = {
             error: null,
             isLoaded: false,
-            currentPromptId: "1"
+            currentPromptId: "1",
+            previousPromptId: "0"
         };
         this.clickBind = this.clickButton.bind(this);
     }
@@ -126,8 +151,10 @@ class FetchSheets extends React.Component {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
             return <div className="loading">Loading...</div>;
+        } else if (this.state.previousPromptId === this.state.currentPromptId) {
+            return this.getTemplate(this.state.previousPromptId, false);
         } else {
-            return this.getTemplate(this.state.currentPromptId);
+            return this.getTemplate(this.state.currentPromptId, true);
         }
     }
 }

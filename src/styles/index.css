@@ -12,10 +12,21 @@ body,
 br {
   line-height: 2em;
 }
+img {
+  max-width: 100%;
+  margin: 0 auto;
+}
 .promptContainer,
 .loading {
   margin: 2rem;
   margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity 1s;
+}
+.fadein {
+  opacity: 1;
 }
 .promptText {
   margin: 0.5rem;
