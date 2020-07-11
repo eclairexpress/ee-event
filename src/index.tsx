@@ -1,5 +1,20 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import FetchSheets from "./components/FetchSheets";
+import CourageTest from "./components/CourageTest";
 
-ReactDOM.render(<FetchSheets />, document.getElementById('root'));
+const CONTAINER_ID = "main";
+
+let pageHash = window.location.hash.substring(1);
+let containerElement = document.getElementById(CONTAINER_ID);
+
+switch(pageHash) {
+	case("couragetest"):
+	console.log("??");
+		ReactDOM.render(<CourageTest />, containerElement);
+		break;
+	case("fortune"):
+		ReactDOM.render(<FortuneDraw />, containerElement);
+		break;
+	default:
+		ReactDOM.render(<DummyPage />, containerElement);
+}

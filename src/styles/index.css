@@ -1,46 +1,49 @@
 html {
-  background-color: #3a353a;
-  color: white;
-  font-size: 18px;
   font-family: 'Lexend Exa', sans-serif;
 }
 html,
-body,
-#root {
+body {
   margin: 0;
+  width: 100%;
+  height: 100%;
 }
 br {
   line-height: 2em;
 }
-img {
+#main.courage-test {
+  font-size: 18px;
+}
+#main.courage-test img {
   max-width: 100%;
   margin: 0 auto;
 }
-.promptContainer,
-.loading {
-  margin: 2rem;
-  margin-top: 4rem;
+#main.courage-test .promptContainer,
+#main.courage-test .loading {
+  padding: 2rem;
+  padding-top: 4rem;
   display: flex;
   flex-direction: column;
   opacity: 0;
   transition: opacity 1s;
 }
-.fadein {
+#main.courage-test .promptContainer.fadein,
+#main.courage-test .loading.fadein {
   opacity: 1;
 }
-.promptText {
+#main.courage-test .promptText {
   margin: 0.5rem;
   display: block;
 }
-.buttonWrapper {
+#main.courage-test .buttonWrapper {
   max-width: 600px;
+  width: 100%;
   margin: 0 auto;
   margin-top: 2rem;
   display: flex;
   justify-content: center;
   align-items: stretch;
 }
-.buttonWrapper button {
+#main.courage-test .buttonWrapper button {
   margin: 0.5rem;
   text-transform: uppercase;
   padding: 0.5rem 1rem;
@@ -51,4 +54,9 @@ img {
   border: 3px solid #afa1a8;
   color: white;
   flex: 1 1 0;
+}
+@media (max-width: 400px) {
+  #main.courage-test .buttonWrapper {
+    flex-direction: column;
+  }
 }
