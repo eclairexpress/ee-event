@@ -22,6 +22,8 @@ br {
   padding: 2rem;
   border-radius: 10px;
   border: 1px solid #4c322b;
+  max-width: 600px;
+  margin: 0 auto;
 }
 #main.hub-page .hubPageContainer {
   font-size: 15px;
@@ -32,6 +34,8 @@ br {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
 }
 #main.hub-page .hubPageContainer .hub-logo img {
   max-width: 100%;
