@@ -14,9 +14,9 @@ function getPageByHash() {
 		console.log("??");
 			ReactDOM.render(<CourageTest />, containerElement);
 			break;
-		case("fortune"):
-			ReactDOM.render(<FortuneDraw />, containerElement);
-			break;
+		// case("fortune"):
+		// 	ReactDOM.render(<FortuneDraw />, containerElement);
+		// 	break;
 		default:
 			ReactDOM.render(<HubPage />, containerElement);
 	}
