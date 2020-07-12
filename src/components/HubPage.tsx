@@ -31,7 +31,7 @@ class HubPage extends React.Component {
 				<div className={ "hub-button-container" }>
 					{ALL_PAGES.map(page => {
 						return(
-							<button key={ page.id } id={ page.id } onClick={this.clickBind} disabled={ !!page.disabled }>{ page.name + (!!page.disabled ? " (Not yet available)" : "") }</button>
+							<button key={ page.id } id={ page.id } onClick={this.clickBind} disabled={ !!page.disabled }>{ page.name + (!!page.disabled ? " (not yet available)" : "") }</button>
 						);
 					})}
 				</div>
