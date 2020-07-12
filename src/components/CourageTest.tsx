@@ -71,6 +71,7 @@ class CourageTest extends React.Component {
 	private preloadData = () => {
 		readFromSheets(TEXT_SHEET)
 			.then((result: any) => {
+				console.log("got sheet");
 				let promptDict: any = {};
 				let mainArray = result.feed.entry;
 
@@ -147,6 +148,7 @@ class CourageTest extends React.Component {
 	}
 
 	render() {
+		console.log("start");
 		let body = document.querySelector("body");
 		body.style.background = BACKGROUND;
 		body.style.color = DEFAULT_TEXT_COLOR;
@@ -156,6 +158,7 @@ class CourageTest extends React.Component {
 		if (error) {
 			return <div>Error: {error.message}</div>;
 		} else if (!isLoaded) {
+			console.log("should show loading");
 			return <div className="loading">Loading...</div>;
 		} else if (this.state.previousPromptId === this.state.currentPromptId) {
 			return this.getTemplate(this.state.previousPromptId, false);
