@@ -86,6 +86,7 @@ br {
 				align-items: stretch;
 
 				button {
+					font-size: 16px;
 					padding: 10px;
 					margin: 8px;
 					border: none;
@@ -123,9 +124,7 @@ br {
 		margin: 0 auto;
 	}
 	
-	.promptContainer, .loading {
-		padding: 2rem;
-		padding-top: 4rem;
+	.promptContainer {
 		display: flex;
 		flex-direction: column;
 		opacity: 0;
@@ -134,10 +133,6 @@ br {
 		&.fadein {
 			opacity: 1;
 		}
-	}
-
-	.loading {
-		opacity: 1;
 	}
 	
 	.promptText {
@@ -149,7 +144,6 @@ br {
 		max-width: 600px;
 		width: 100%;
 		margin: 0 auto;
-		margin-top: 2rem;
 		display: flex;
 		justify-content: center;
 		align-items: stretch;

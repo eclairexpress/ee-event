@@ -59,6 +59,7 @@ br {
   align-items: stretch;
 }
 #main.hub-page .hubPageContainer .hub-button-container button {
+  font-size: 16px;
   padding: 10px;
   margin: 8px;
   border: none;
@@ -87,20 +88,13 @@ br {
   max-width: 100%;
   margin: 0 auto;
 }
-#main.courage-test .promptContainer,
-#main.courage-test .loading {
-  padding: 2rem;
-  padding-top: 4rem;
+#main.courage-test .promptContainer {
   display: flex;
   flex-direction: column;
   opacity: 0;
   transition: opacity 1s;
 }
-#main.courage-test .promptContainer.fadein,
-#main.courage-test .loading.fadein {
-  opacity: 1;
-}
-#main.courage-test .loading {
+#main.courage-test .promptContainer.fadein {
   opacity: 1;
 }
 #main.courage-test .promptText {
@@ -111,7 +105,6 @@ br {
   max-width: 600px;
   width: 100%;
   margin: 0 auto;
-  margin-top: 2rem;
   display: flex;
   justify-content: center;
   align-items: stretch;
