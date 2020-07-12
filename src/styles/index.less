@@ -28,10 +28,27 @@ html {
 body {
 	background: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d6155b58-5126-439a-ade3-895083fe1973/dbkc9nw-1fd2bbf7-d350-4eaa-a7e2-8562c4607a66.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZDYxNTViNTgtNTEyNi00MzlhLWFkZTMtODk1MDgzZmUxOTczXC9kYmtjOW53LTFmZDJiYmY3LWQzNTAtNGVhYS1hN2UyLTg1NjJjNDYwN2E2Ni5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.xqi7KLj0DwtrWAXH57li7_xP_PmRKIMkEsWjRTFuyzI") repeat;
 	color: #876046;
+	padding-bottom: 2rem;
 }
 
 br {
     line-height: 18px;
+}
+
+button {
+	padding: 10px;
+	margin: 8px;
+	border: none;
+	border-radius: 5px;
+	background: @brown;
+	flex: 1 1 0;
+	color: white;
+	font-family: inherit;
+
+	&:disabled {
+		background: @disabledBg;
+		color: @disabledText;
+	}
 }
 
 #main {
@@ -87,19 +104,6 @@ br {
 
 				button {
 					font-size: 16px;
-					padding: 10px;
-					margin: 8px;
-					border: none;
-					border-radius: 5px;
-					background: @brown;
-					flex: 1 1 0;
-					color: white;
-					font-family: inherit;
-
-					&:disabled {
-						background: @disabledBg;
-    					color: @disabledText;
-					}
 				}
 			}
 		}
@@ -149,16 +153,10 @@ br {
 		align-items: stretch;
 	
 		button {
-			margin: 0.5rem;
 			text-transform: uppercase;
-			padding: 0.5rem 1rem;
 			font-size: 1.25rem;
-			border-radius: 5px;
-			font-family: inherit;
 			background: #7d787d;
 			border: 3px solid #afa1a8;
-			color: white;
-			flex: 1 1 0;
 		}
 	}
 
