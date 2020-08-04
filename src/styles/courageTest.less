@@ -1,0 +1,41 @@
+#main.courage-test {
+	font-size: 18px;
+	
+	.promptContainer {
+		display: flex;
+		flex-direction: column;
+		opacity: 0;
+		transition: opacity 1s;
+
+		&.fadein {
+			opacity: 1;
+		}
+	}
+	
+	.promptText {
+		margin: 0.5rem;
+		display: block;
+	}
+	
+	.buttonWrapper {
+		max-width: 600px;
+		width: 100%;
+		margin: 0 auto;
+		display: flex;
+		justify-content: center;
+		align-items: stretch;
+	
+		button {
+			text-transform: uppercase;
+			font-size: 1.25rem;
+			background: #7d787d;
+			border: 3px solid #afa1a8;
+		}
+	}
+
+	@media (max-width: 400px) {
+		.buttonWrapper {
+			flex-direction: column;
+		}
+	}
+}

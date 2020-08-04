@@ -1,5 +1,6 @@
 import React from 'react';
 import { SHEETS_PREFIX, readFromSheets } from './FetchSheets';
+import { IState } from './helpers';
 
 const TEXT_SHEET = "https://spreadsheets.google.com/feeds/list/1B_6uztovGLn5OW14pWC3VklwaMQvQjlI751z2FSmJmw/od6/public/values?alt=json";
 const BACKGROUND = "#3a353a";
@@ -16,16 +17,17 @@ interface IPrompt {
 	options: IOption[];
 }
 
-interface IPromptState {
-	error: any;
-	isLoaded: boolean;
+interface IPromptDict {
+	[id: string]: IPrompt;
+}
+
+interface IPromptState extends IState {
 	currentPromptId: string;
 	previousPromptId: string;
 }
 
 class CourageTest extends React.Component {
-	private promptDict: { [id: string]: IPrompt } = {};
-	private clickBind: (e: any) => void;
+	private promptDict: IPromptDict = {};
 	private lost = -1;
 	private lostPhrases = [
 		"",
@@ -71,8 +73,7 @@ class CourageTest extends React.Component {
 	private preloadData = () => {
 		readFromSheets(TEXT_SHEET)
 			.then((result: any) => {
-				console.log("got sheet");
-				let promptDict: any = {};
+				let promptDict: IPromptDict = {};
 				let mainArray = result.feed.entry;
 
 				mainArray.forEach((prompt: any[]) => {
@@ -123,7 +124,7 @@ class CourageTest extends React.Component {
 					<div className="buttonWrapper">
 					{prompt.options.map(option => {
 						return(
-							<button key={option.optionId} id={option.optionId} onClick={this.clickBind}>{option.text}</button>
+							<button key={option.optionId} id={option.optionId} onClick={e => this.clickButton(e)}>{option.text}</button>
 						);
 					})}
 					</div>
@@ -140,7 +141,6 @@ class CourageTest extends React.Component {
 			currentPromptId: "1",
 			previousPromptId: "0"
 		};
-		this.clickBind = this.clickButton.bind(this);
 	}
 
 	componentDidMount() {
@@ -148,7 +148,6 @@ class CourageTest extends React.Component {
 	}
 
 	render() {
-		console.log("start");
 		let body = document.querySelector("body");
 		body.style.background = BACKGROUND;
 		body.style.color = DEFAULT_TEXT_COLOR;
@@ -158,7 +157,6 @@ class CourageTest extends React.Component {
 		if (error) {
 			return <div>Error: {error.message}</div>;
 		} else if (!isLoaded) {
-			console.log("should show loading");
 			return <div className="loading">Loading...</div>;
 		} else if (this.state.previousPromptId === this.state.currentPromptId) {
 			return this.getTemplate(this.state.previousPromptId, false);

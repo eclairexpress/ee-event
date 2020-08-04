@@ -1,0 +1,146 @@
+#main.fortune {
+	margin: 2rem 0;
+
+	.fortuneDrawContainer {
+		display: flex;
+		position: relative;
+		max-width: 600px;
+		margin: 0 auto;
+
+		.fortuneDraw-side {
+			margin-top: 20%;
+		}
+
+		.fortuneDraw-main {
+			position: relative;
+			margin-left: -2px;
+
+			.fortuneDraw-top {
+				z-index: 2;
+    			position: relative;
+			}
+
+			.fortuneDraw-bottom {
+				margin-top: -2px;
+			}
+
+			.fortuneDraw-slip {
+				width: 60%;
+				left: 20%;
+				top: 1%;
+				position: absolute;
+				z-index: 1;
+				border-radius: 5px;
+				box-shadow: 0px 5px 5px 2px #fff;
+				cursor: pointer;
+			
+				&.draw {
+					animation: draw 3s ease-out;
+				}
+			}
+		}
+	}
+
+	@keyframes draw {
+		0% { 
+			top: 1%;
+			opacity: 1;
+		}
+		50% {
+			top: 57%;
+			opacity: 1;
+		}
+		70% { 
+			top: 57%;
+			opacity: 0;
+		}
+		100% { 
+			top: 57%;
+			opacity: 0;
+		}
+	}
+
+	.fortuneDrawResultContainer {
+		display: flex;
+    	justify-content: center;
+		opacity: 1;
+		transition: opacity 1s;
+
+		&.fade {
+			opacity: 0;
+		}
+
+		&Outer {
+			position: relative;
+			border: 8px solid #45281a;
+			background: #45281a;
+			border-radius: 8px;
+			max-width: 600px;
+			width: 100%;
+			z-index: 10;
+			box-sizing: border-box;
+
+			> span {
+				color: #fce3c1;
+				text-transform: uppercase;
+				padding-left: 1rem;
+			}
+		}
+		
+		&Middle {
+			border: 10px solid #fce3c1;
+			border-radius: 8px;
+			background: #fce3c1;
+		}
+
+		&Inner {
+			border: 10px solid #b78167;
+			border-radius: 8px;
+			background: #fce3c1;
+			padding: 10px 10px 10px 0px;
+		}
+
+		#retry {
+			position: absolute;
+			width: 40px;
+			border-radius: 50%;
+			z-index: 20;
+			padding: 6px;
+			bottom: 3px;
+			right: 3px;
+			margin: 0;
+			cursor: pointer;
+			border: 2px solid #45281a;
+			background: #fff;
+	
+		}
+		.fortuneContentContainer {
+			display: flex;
+			align-items: center;
+			padding: 10px;
+			margin-top: 10px;
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			.fortuneText {
+				margin-left: 10px;
+				display: flex;
+			    align-items: center;
+
+				b {
+					color: #45281a;
+				}
+			}
+
+			.fortuneImage {
+				max-width: 50px;
+
+				img {
+					max-width: inherit;
+				}
+			}
+		}
+	}
+}

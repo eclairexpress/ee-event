@@ -19,6 +19,12 @@ html {
     font-family: 'Lexend Exa', sans-serif;
 }
 
+img {
+	max-width: 100%;
+	margin: 0 auto;
+	display: block;
+}
+
 html {
 	margin: 0;
 	width: 100%;
@@ -44,6 +50,7 @@ button {
 	flex: 1 1 0;
 	color: white;
 	font-family: inherit;
+	outline-color: white;
 
 	&:disabled {
 		background: @disabledBg;
@@ -79,10 +86,6 @@ button {
 		margin: 0 auto;
 
 		.hub- {
-			&logo img {
-				max-width: 100%;
-			}
-
 			&title {
 				font-family: 'Bungee', cursive;
 				color: @dkBrown;
@@ -120,49 +123,6 @@ button {
 	}
 }
 
-#main.courage-test {
-	font-size: 18px;
-	
-	img {
-		max-width: 100%;
-		margin: 0 auto;
-	}
-	
-	.promptContainer {
-		display: flex;
-		flex-direction: column;
-		opacity: 0;
-		transition: opacity 1s;
 
-		&.fadein {
-			opacity: 1;
-		}
-	}
-	
-	.promptText {
-		margin: 0.5rem;
-		display: block;
-	}
-	
-	.buttonWrapper {
-		max-width: 600px;
-		width: 100%;
-		margin: 0 auto;
-		display: flex;
-		justify-content: center;
-		align-items: stretch;
-	
-		button {
-			text-transform: uppercase;
-			font-size: 1.25rem;
-			background: #7d787d;
-			border: 3px solid #afa1a8;
-		}
-	}
-
-	@media (max-width: 400px) {
-		.buttonWrapper {
-			flex-direction: column;
-		}
-	}
-}
+@import './courageTest.less';
+@import './fortune.less';

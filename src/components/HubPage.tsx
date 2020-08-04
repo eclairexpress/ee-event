@@ -2,7 +2,7 @@ import React from 'react';
 
 const ALL_PAGES = [
 	{ id: "courage-test", name: "Test of Courage" },
-	{ id: "fortune", name: "New Year's Fortune", disabled: true }
+	{ id: "fortune", name: "New Year's Fortune" }
 ];
 
 const LOGO_URL = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d6155b58-5126-439a-ade3-895083fe1973/dbjviwi-d969c9f9-8473-4124-901b-6e04796ce0f8.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZDYxNTViNTgtNTEyNi00MzlhLWFkZTMtODk1MDgzZmUxOTczXC9kYmp2aXdpLWQ5NjljOWY5LTg0NzMtNDEyNC05MDFiLTZlMDQ3OTZjZTBmOC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.orQh_3PWljwMG1i4_y2PC7QuB9x0_RjAlnkPO7vUgEo";
