@@ -125,11 +125,17 @@ button:disabled {
 #main.fortune {
   margin: 2rem 0;
 }
+#main.fortune .hide {
+  display: none;
+}
 #main.fortune .fortuneDrawContainer {
   display: flex;
   position: relative;
   max-width: 600px;
   margin: 0 auto;
+}
+#main.fortune .fortuneDrawContainer.hide {
+  display: none;
 }
 #main.fortune .fortuneDrawContainer .fortuneDraw-side {
   margin-top: 20%;

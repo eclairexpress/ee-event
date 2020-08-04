@@ -1,6 +1,12 @@
 import React from 'react';
 
-const ALL_PAGES = [
+interface IPageButton {
+	id: string;
+	name: string;
+	disabled?: boolean;
+}
+
+const ALL_PAGES: IPageButton[] = [
 	{ id: "courage-test", name: "Test of Courage" },
 	{ id: "fortune", name: "New Year's Fortune" }
 ];

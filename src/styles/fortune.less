@@ -1,11 +1,19 @@
 #main.fortune {
 	margin: 2rem 0;
 
+	.hide {
+		display: none;
+	}
+
 	.fortuneDrawContainer {
 		display: flex;
 		position: relative;
 		max-width: 600px;
 		margin: 0 auto;
+
+		&.hide {
+			display: none;
+		}
 
 		.fortuneDraw-side {
 			margin-top: 20%;

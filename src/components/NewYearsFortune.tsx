@@ -10,6 +10,7 @@ interface IFortuneState extends IState {
 
 class FortuneDraw extends React.Component {
 	private fortunes: string[][] = [[], [], []];
+	private imageCount = 0;
 	state: IFortuneState;
 
 	private preloadData = () => {
@@ -93,14 +94,27 @@ class FortuneDraw extends React.Component {
 		);
 	}
 
+	private showGenerator() {
+		this.imageCount ++;
+
+		if (this.imageCount === 4) {
+			document.querySelector(".fortuneDrawContainer").classList.remove("hide");
+			document.querySelector(".loading-container").classList.add("hide");
+			this.imageCount = 0;
+		}
+	}
+
 	private getTemplate() {
 		return(
-			<div className="fortuneDrawContainer">
-				<div className="fortuneDraw-side"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d6155b58-5126-439a-ade3-895083fe1973/de14mtz-072f7ffb-883d-4b56-ac3d-ff351266f132.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZDYxNTViNTgtNTEyNi00MzlhLWFkZTMtODk1MDgzZmUxOTczXC9kZTE0bXR6LTA3MmY3ZmZiLTg4M2QtNGI1Ni1hYzNkLWZmMzUxMjY2ZjEzMi5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.p5kxhbP0LtARiAeKIxxWX97iNfE90hzJ2uGUlwmAsx4"></img></div>
-				<div className="fortuneDraw-main">
-					<div className="fortuneDraw-top"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d6155b58-5126-439a-ade3-895083fe1973/de14mu3-d53a37fa-d88f-4d52-abac-d5447572dd1e.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZDYxNTViNTgtNTEyNi00MzlhLWFkZTMtODk1MDgzZmUxOTczXC9kZTE0bXUzLWQ1M2EzN2ZhLWQ4OGYtNGQ1Mi1hYmFjLWQ1NDQ3NTcyZGQxZS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.4sLV3_4LS1FIQ-DneVSMn5tGmmODhhfetQ2Kb9pxKnk"></img></div>
-					<div className="fortuneDraw-bottom"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d6155b58-5126-439a-ade3-895083fe1973/de14mu9-e58264bd-b796-4ca7-af92-2f1ab8fef75e.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZDYxNTViNTgtNTEyNi00MzlhLWFkZTMtODk1MDgzZmUxOTczXC9kZTE0bXU5LWU1ODI2NGJkLWI3OTYtNGNhNy1hZjkyLTJmMWFiOGZlZjc1ZS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.CsjXoiSPyYVrFM9PXxPVAy6KblqEFE2zIOg98aN-lQA"></img></div>
-					<div className="fortuneDraw-slip" onClick={ () => this.clickButton() }><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d6155b58-5126-439a-ade3-895083fe1973/de2lmci-c1dd3e0e-2fa7-44ae-8c3a-2d9983ecefbc.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZDYxNTViNTgtNTEyNi00MzlhLWFkZTMtODk1MDgzZmUxOTczXC9kZTJsbWNpLWMxZGQzZTBlLTJmYTctNDRhZS04YzNhLTJkOTk4M2VjZWZiYy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.-9SQZU5vOIvuyLN2uafZtvZqFgyabdiUtmYEKP7mVpk"></img></div>
+			<div>
+				<div className="loading-container">Loading...</div>
+				<div className="fortuneDrawContainer hide">
+					<div className="fortuneDraw-side"><img onLoad={() => this.showGenerator() } src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d6155b58-5126-439a-ade3-895083fe1973/de14mtz-072f7ffb-883d-4b56-ac3d-ff351266f132.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZDYxNTViNTgtNTEyNi00MzlhLWFkZTMtODk1MDgzZmUxOTczXC9kZTE0bXR6LTA3MmY3ZmZiLTg4M2QtNGI1Ni1hYzNkLWZmMzUxMjY2ZjEzMi5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.p5kxhbP0LtARiAeKIxxWX97iNfE90hzJ2uGUlwmAsx4"></img></div>
+					<div className="fortuneDraw-main">
+						<div className="fortuneDraw-top"><img onLoad={() => this.showGenerator() } src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d6155b58-5126-439a-ade3-895083fe1973/de14mu3-d53a37fa-d88f-4d52-abac-d5447572dd1e.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZDYxNTViNTgtNTEyNi00MzlhLWFkZTMtODk1MDgzZmUxOTczXC9kZTE0bXUzLWQ1M2EzN2ZhLWQ4OGYtNGQ1Mi1hYmFjLWQ1NDQ3NTcyZGQxZS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.4sLV3_4LS1FIQ-DneVSMn5tGmmODhhfetQ2Kb9pxKnk"></img></div>
+						<div className="fortuneDraw-bottom"><img onLoad={() => this.showGenerator() } src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d6155b58-5126-439a-ade3-895083fe1973/de14mu9-e58264bd-b796-4ca7-af92-2f1ab8fef75e.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZDYxNTViNTgtNTEyNi00MzlhLWFkZTMtODk1MDgzZmUxOTczXC9kZTE0bXU5LWU1ODI2NGJkLWI3OTYtNGNhNy1hZjkyLTJmMWFiOGZlZjc1ZS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.CsjXoiSPyYVrFM9PXxPVAy6KblqEFE2zIOg98aN-lQA"></img></div>
+						<div className="fortuneDraw-slip" onClick={ () => this.clickButton() }><img onLoad={() => this.showGenerator() } src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d6155b58-5126-439a-ade3-895083fe1973/de2lmci-c1dd3e0e-2fa7-44ae-8c3a-2d9983ecefbc.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZDYxNTViNTgtNTEyNi00MzlhLWFkZTMtODk1MDgzZmUxOTczXC9kZTJsbWNpLWMxZGQzZTBlLTJmYTctNDRhZS04YzNhLTJkOTk4M2VjZWZiYy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.-9SQZU5vOIvuyLN2uafZtvZqFgyabdiUtmYEKP7mVpk"></img></div>
+					</div>
 				</div>
 			</div>
 		);
