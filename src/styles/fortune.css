@@ -87,6 +87,10 @@
   background: #fce3c1;
   padding: 10px 10px 10px 0px;
 }
+#main.fortune .fortuneDrawResultContainerInner > span {
+  color: #45281a;
+  padding-left: 10px;
+}
 #main.fortune .fortuneDrawResultContainer #retry {
   position: absolute;
   width: 40px;
@@ -102,12 +106,12 @@
 }
 #main.fortune .fortuneDrawResultContainer .fortuneContentContainer {
   display: flex;
-  align-items: center;
-  padding: 10px;
-  margin-top: 10px;
+  align-items: flex-start;
+  padding: 5px 10px 10px 10px;
+  margin-bottom: 1.5rem;
 }
-#main.fortune .fortuneDrawResultContainer .fortuneContentContainer:first-child {
-  margin-top: 0;
+#main.fortune .fortuneDrawResultContainer .fortuneContentContainer:last-child {
+  margin-bottom: 0;
 }
 #main.fortune .fortuneDrawResultContainer .fortuneContentContainer .fortuneText {
   margin-left: 10px;

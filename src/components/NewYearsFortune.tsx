@@ -71,14 +71,17 @@ class FortuneDraw extends React.Component {
 					<button onClick={ () => this.retry() } id="retry"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d6155b58-5126-439a-ade3-895083fe1973/ddxelba-f92e0d4e-3dcf-48bb-afed-fe99d605f2a7.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZDYxNTViNTgtNTEyNi00MzlhLWFkZTMtODk1MDgzZmUxOTczXC9kZHhlbGJhLWY5MmUwZDRlLTNkY2YtNDhiYi1hZmVkLWZlOTlkNjA1ZjJhNy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.Tbgd32K_c5fgTJxKxcOlv6pc48KGmfS0R8Q1sPBseIk"></img></button>
 					<div className="fortuneDrawResultContainerMiddle">
 						<div className="fortuneDrawResultContainerInner">
+							<span>LUCK</span>
 							<div className="fortuneContentContainer">
 								<div className="fortuneImage"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d6155b58-5126-439a-ade3-895083fe1973/de16tn4-77fb1197-38c9-4b50-af4c-d1a1c45449e4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZDYxNTViNTgtNTEyNi00MzlhLWFkZTMtODk1MDgzZmUxOTczXC9kZTE2dG40LTc3ZmIxMTk3LTM4YzktNGI1MC1hZjRjLWQxYTFjNDU0NDllNC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.FFoXy_53iqFjriREg0BSN8PjUJYEfC_Ng2U8SIh_PG4"></img></div>
 								<div className="fortuneText" id="genLuckText" dangerouslySetInnerHTML={{ __html: `<span>${fortuneStrings[0]}</span>` }}></div>
 							</div>
+							<span>RELATIONSHIPS</span>
 							<div className="fortuneContentContainer">
 								<div className="fortuneImage"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d6155b58-5126-439a-ade3-895083fe1973/de16tmx-ca1d0ed0-104b-4df2-bedf-49c1b66e3cb1.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZDYxNTViNTgtNTEyNi00MzlhLWFkZTMtODk1MDgzZmUxOTczXC9kZTE2dG14LWNhMWQwZWQwLTEwNGItNGRmMi1iZWRmLTQ5YzFiNjZlM2NiMS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ._uN5I1vkcbS-pZsN8_1v4zRUCNTcuU8cn5nmYvHX00U"></img></div>
 								<div className="fortuneText" id="loveLuckText">{ fortuneStrings[1] }</div>
 							</div>
+							<span>CAREER</span>
 							<div className="fortuneContentContainer">
 								<div className="fortuneImage"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d6155b58-5126-439a-ade3-895083fe1973/de16tmu-e59e64dd-78bd-4235-a9a5-4a7e97b1052e.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZDYxNTViNTgtNTEyNi00MzlhLWFkZTMtODk1MDgzZmUxOTczXC9kZTE2dG11LWU1OWU2NGRkLTc4YmQtNDIzNS1hOWE1LTRhN2U5N2IxMDUyZS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.ffCOPgRZuIBgvBIdLKwz-llFtQ2o51GAdp2ia_-l2xs"></img></div>
 								<div className="fortuneText" id="luckLuckText">{ fortuneStrings[2] }</div>
